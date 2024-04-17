@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 var productModel = require('../schemas/product')
 var nsxModel = require('../schemas/nsx');
+<<<<<<< HEAD
 const nsx = require('../schemas/nsx');
+=======
+>>>>>>> 342d329f1f4cacc50fa3c1afe35dd1dbad437083
 
 
 
@@ -40,6 +43,10 @@ router.get('/', async (req, res, next) => {
         const products = await productModel
             .find(queries)
             .populate({ path: 'nsx', select: "_id name" })
+<<<<<<< HEAD
+=======
+            //.populate({ path: 'category', select: "_id name" })
+>>>>>>> 342d329f1f4cacc50fa3c1afe35dd1dbad437083
             .skip((page - 1) * limit)
             .limit(limit)
             .lean();
@@ -51,7 +58,11 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+<<<<<<< HEAD
 
+=======
+module.exports = router;
+>>>>>>> 342d329f1f4cacc50fa3c1afe35dd1dbad437083
 
 router.get('/:id', async function (req, res, next) {
   try {
